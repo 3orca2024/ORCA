@@ -50,6 +50,113 @@
       border-radius: 25px;
       padding: 20px;
       width: 250px;
-      box-shadow: 0px 6px 14px rgba(0,0
+      box-shadow: 0px 6px 14px rgba(0,0,0,0.15);
+      font-size: 1.2em;
+    }
+
+    .emoji {
+      font-size: 2em;
+      margin-bottom: 10px;
+    }
+
+    .holiday-box {
+      background: #c8f5ff;
+      border-radius: 20px;
+      padding: 20px;
+      margin: 20px auto;
+      max-width: 500px;
+      box-shadow: 0px 6px 14px rgba(0,0,0,0.15);
+      font-size: 1.3em;
+    }
+
+    .countdown {
+      font-weight: bold;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>💕 Parker Loves Rock Climbing 💕</h1>
+
+  <div class="about">
+    <h2>✨ About Me ✨</h2>
+    <p>💜 My favorite color is purple</p>
+    <p>🐶 I have a dog named Orca</p>
+    <p>🧗 I’m amazing at rock climbing</p>
+    <p>🏐 I love volleyball</p>
+    <p>🎿 Skiing is one of my favorite things</p>
+    <p>🍴 I love creating yummy food</p>
+    <p>👧 I have a sibling named Scarlet — she’s annoying but also nice</p>
+  </div>
+
+  <h2>🎀 Sports 🎀</h2>
+  <div class="grid">
+    <div class="sport-box">
+      <div class="emoji">🧗</div>
+      <p>Rock Climbing</p>
+      <p>Allison</p>
+    </div>
+
+    <div class="sport-box">
+      <div class="emoji">🏐</div>
+      <p>Volleyball</p>
+      <p>Lauren, Charlotte, Jasmine, Bella, Chloe</p>
+    </div>
+
+    <div class="sport-box">
+      <div class="emoji">🎿</div>
+      <p>Skiing</p>
+      <p>Emily, Charlotte</p>
+    </div>
+  </div>
+
+  <h2>🌸 My Amazing Friends 🌸</h2>
+  <div class="grid">
+    <div class="friend-box"><div class="emoji">❤️</div>Charlotte — super nice, really pretty, amazing</div>
+    <div class="friend-box"><div class="emoji">🎨</div>Oriana — super nice, really pretty, amazing</div>
+    <div class="friend-box"><div class="emoji">📞</div>Lauren — super nice, really pretty, amazing</div>
+    <div class="friend-box"><div class="emoji">👓</div>Chloe — super nice, really pretty, amazing</div>
+    <div class="friend-box"><div class="emoji">🌸</div>Allison — super nice, really pretty, amazing</div>
+    <div class="friend-box"><div class="emoji">🌟</div>Jasmine — super nice, really pretty, amazing</div>
+    <div class="friend-box"><div class="emoji">🎀</div>Bella — super nice, really pretty, amazing</div>
+    <div class="friend-box"><div class="emoji">💎</div>Emily — super nice, really pretty, amazing</div>
+  </div>
+
+  <h2>⏳ Holiday & Birthday Countdowns ⏳</h2>
+  <div class="holiday-box" id="christmas"></div>
+  <div class="holiday-box" id="thanksgiving"></div>
+  <div class="holiday-box" id="valentine"></div>
+  <div class="holiday-box" id="stpatricks"></div>
+  <div class="holiday-box" id="piday"></div>
+  <div class="holiday-box" id="scarlet-bday"></div>
+  <div class="holiday-box" id="parker-bday"></div>
+  <div class="holiday-box" id="schoolend"></div>
+
+  <script>
+    function countdown(id, date, label) {
+      const box = document.getElementById(id);
+      function update() {
+        const now = new Date();
+        let target = new Date(date);
+        if (target < now) target.setFullYear(now.getFullYear() + 1);
+        const diff = target - now;
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        box.innerHTML = `${label} 🎉 → ${days} days away`;
+      }
+      update();
+      setInterval(update, 1000 * 60 * 60);
+    }
+
+    countdown("christmas", "2025-12-25", "🎄 Christmas");
+    countdown("thanksgiving", "2025-11-27", "🦃 Thanksgiving");
+    countdown("valentine", "2026-02-14", "💌 Valentine’s Day");
+    countdown("stpatricks", "2026-03-17", "☘️ St. Patrick’s Day");
+    countdown("piday", "2026-03-14", "🥧 Pi Day");
+    countdown("scarlet-bday", "2026-01-28", "🎂 Scarlet’s Birthday");
+    countdown("parker-bday", "2026-03-18", "🎂 Parker’s Birthday");
+    countdown("schoolend", "2026-05-29", "🏫 Last Day of School");
+  </script>
+</body>
+</html>
 
 
