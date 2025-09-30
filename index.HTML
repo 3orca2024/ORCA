@@ -2,121 +2,157 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Parker's Amazing Aesthetic Page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Princess Arcade</title>
   <style>
     body {
       margin: 0;
       font-family: 'Comic Sans MS', cursive, sans-serif;
-      background: linear-gradient(to bottom right, #e6ccff, #cce6ff);
-      color: #fffaf0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 20px;
-    }
-
-    h1 {
-      font-size: 4em;
-      color: #fffaf0;
-      -webkit-text-stroke: 2px #b19cd9; /* Bubble effect outline */
+      background: pink;
       text-align: center;
+      overflow-x: hidden;
     }
-
-    .section {
-      background: rgba(255, 255, 255, 0.3);
-      border-radius: 25px;
-      padding: 20px;
+    header {
+      background: #ffb6c1;
+      padding: 10px;
+      font-size: 24px;
+      font-weight: bold;
+      color: #fff;
+    }
+    #princess-bar img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      margin: 5px;
+      cursor: pointer;
+      border: 3px solid transparent;
+    }
+    #princess-bar img.selected {
+      border: 3px solid purple;
+    }
+    #game-selector button {
+      margin: 10px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 16px;
+      background: #fff;
+      box-shadow: 0px 3px 5px rgba(0,0,0,0.2);
+    }
+    #instructions {
       margin: 20px;
-      width: 80%;
-      box-shadow: 0px 4px 12px rgba(0,0,0,0.2);
-      text-align: center;
+      padding: 10px;
+      background: #fff;
+      border-radius: 10px;
+      width: 60%;
+      margin-left: auto;
+      margin-right: auto;
+      box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
     }
-
-    .section h2 {
-      font-size: 2.5em;
-      color: #fffaf0;
-      -webkit-text-stroke: 1.5px #b19cd9;
-      margin-bottom: 10px;
+    canvas {
+      border: 2px solid #333;
+      background: #fce4ec;
+      display: block;
+      margin: 20px auto;
     }
-
-    .section p {
-      font-size: 1.4em;
-      line-height: 1.6em;
+    #shop {
+      margin: 20px auto;
+      padding: 10px;
+      width: 40%;
+      background: #ffe;
+      border-radius: 10px;
+      box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
     }
-
-    .countdown {
-      font-size: 1.6em;
-      margin-top: 10px;
-      color: #fffaf0;
+    #shop button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 10px;
+      background: #f48fb1;
+      color: #fff;
+      cursor: pointer;
     }
   </style>
 </head>
 <body>
-  <h1>💜 Parker’s World 💜</h1>
-
-  <div class="section">
-    <h2>🌟 About Me 🌟</h2>
-    <p>Hi! I’m Parker 💕</p>
-    <p>🎿 Amazing skier, 🧗 great rock climber, 🏐 volleyball pro!</p>
-    <p>I go to Dexter Southfield and live in Hammond, Massachusetts.</p>
-    <p>My birthday is March 18, and it’s basically the best day ever. 🎂</p>
+  <header>👑 Princess Arcade 👑</header>
+  <div id="princess-bar">
+    <img src="https://source.unsplash.com/60x60/?princess,1" alt="princess1">
+    <img src="https://source.unsplash.com/60x60/?princess,2" alt="princess2">
+    <img src="https://source.unsplash.com/60x60/?princess,3" alt="princess3">
+    <img src="https://source.unsplash.com/60x60/?princess,4" alt="princess4">
+  </div>
+  <div id="game-selector">
+    <button onclick="selectGame('flap')">Princess Flap</button>
+    <button onclick="selectGame('block')">Princess Block Blast</button>
+    <button onclick="selectGame('runner')">Princess Runner</button>
+    <button onclick="selectGame('puzzle')">Princess Puzzle</button>
   </div>
 
-  <div class="section">
-    <h2>👯 My Friends 👯</h2>
-    <p>Lauren → really nice, a little loud 💖</p>
-    <p>Charlotte → fun & pretty 💕</p>
-    <p>Oriana → artistic and awesome 🎨</p>
-    <p>Chloe → new, nice, and has cute glasses 🤓</p>
-    <p>Allison → amazing 💜</p>
-    <p>Jasmine → super sweet 💐</p>
-    <p>Bella → one of my besties ✨</p>
-    <p>Emily → so great 🌸</p>
-  </div>
+  <div id="instructions">Pick a game to see instructions!</div>
+  <canvas id="gameCanvas" width="600" height="400"></canvas>
 
-  <div class="section">
-    <h2>🎉 Important Countdowns 🎉</h2>
-    <div id="countdowns"></div>
-  </div>
-
-  <div class="section">
-    <h2>👧 My Sister 👧</h2>
-    <p>Scarlet — kinda annoying, but also really nice. 💗</p>
-    <p>Her birthday is January 28. 🎂</p>
+  <div id="shop">
+    <h3>💖 Heart Shop 💖</h3>
+    <p>You can buy hearts with coins you earn from all games.</p>
+    <p>Coins: <span id="coinCount">0</span> | Hearts: <span id="heartCount">0</span></p>
+    <button onclick="buyHeart()">Buy Heart (30 coins)</button>
   </div>
 
   <script>
-    function countdown(targetDate, name) {
-      const now = new Date();
-      const diff = targetDate - now;
-      const days = Math.ceil(diff / (1000 * 60 * 60 * 24));
-      return `${name}: ${days} days left 🎉`;
+    let coins = 0;
+    let hearts = 0;
+    let selectedGame = null;
+
+    function selectGame(game) {
+      selectedGame = game;
+      let instructions = document.getElementById('instructions');
+      if (game === 'flap') {
+        instructions.innerHTML = "Princess Flap: Tap/click to make your princess float up. Avoid obstacles and collect coins!";
+      } else if (game === 'block') {
+        instructions.innerHTML = "Princess Block Blast: Break all the colorful blocks by bouncing the ball. Collect coins as you clear!";
+      } else if (game === 'runner') {
+        instructions.innerHTML = "Princess Runner: Run forward and jump to dodge obstacles. Gather coins along the way!";
+      } else if (game === 'puzzle') {
+        instructions.innerHTML = "Princess Puzzle: Rearrange the tiles to complete the princess picture. Earn coins for solving!";
+      }
+      startGame(game);
     }
 
-    function updateCountdowns() {
-      const events = [
-        { date: new Date("2025-12-25"), name: "🎄 Christmas" },
-        { date: new Date("2025-11-27"), name: "🦃 Thanksgiving" },
-        { date: new Date("2026-02-14"), name: "💘 Valentine’s Day" },
-        { date: new Date("2026-03-17"), name: "🍀 St. Patrick’s Day" },
-        { date: new Date("2026-03-14"), name: "🥧 Pi Day" },
-        { date: new Date("2026-05-29"), name: "🏫 Last Day of School" },
-        { date: new Date("2026-03-18"), name: "🎂 Parker’s Birthday" },
-        { date: new Date("2026-01-28"), name: "🎂 Scarlet’s Birthday" }
-      ];
-
-      const container = document.getElementById("countdowns");
-      container.innerHTML = "";
-      events.forEach(event => {
-        const p = document.createElement("p");
-        p.className = "countdown";
-        p.textContent = countdown(event.date, event.name);
-        container.appendChild(p);
-      });
+    function updateShop() {
+      document.getElementById('coinCount').innerText = coins;
+      document.getElementById('heartCount').innerText = hearts;
     }
 
-    updateCountdowns();
-    setInterval(updateCountdowns, 1000 * 60 * 60); // update every hour
+    function buyHeart() {
+      if (coins >= 30) {
+        coins -= 30;
+        hearts++;
+        updateShop();
+        alert("You bought a heart!");
+      } else {
+        alert("Not enough coins!");
+      }
+    }
+
+    function addCoins(amount) {
+      coins += amount;
+      updateShop();
+    }
+
+    // Dummy game starter for now
+    function startGame(game) {
+      const ctx = document.getElementById('gameCanvas').getContext('2d');
+      ctx.clearRect(0,0,600,400);
+      ctx.fillStyle = "#f8bbd0";
+      ctx.fillRect(0,0,600,400);
+      ctx.fillStyle = "#333";
+      ctx.font = "20px Arial";
+      ctx.fillText("Game: " + game + " coming soon!", 200, 200);
+      addCoins(5); // reward coins demo
+    }
+
+    updateShop();
   </script>
 </body>
 </html>
