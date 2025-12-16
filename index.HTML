@@ -2,98 +2,214 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Lewis & Clark Expedition Map</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Midsummer Night’s Dream – Quiz Study Guide</title>
   <style>
     body {
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      background: #fff5fb;
+      color: #2b2b2b;
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f0f0f0;
-    }
-    h1 {
-      text-align: center;
-      background: #fff;
-      padding: 1rem;
-      border-bottom: 2px solid #ccc;
-    }
-    .container {
-      display: flex;
-      justify-content: center;
-      padding: 1rem;
-    }
-    .map-area {
-      position: relative;
-      width: 1000px;
-      height: 650px;
-      background: url('your-map.png') no-repeat center;
-      background-size: contain;
-      border: 2px solid #333;
-    }
-    .label {
-      position: absolute;
-      background: rgba(255,255,255,0.85);
-      padding: 2px 6px;
-      border: 1px solid #333;
-      font-size: 12px;
-      border-radius: 3px;
-      white-space: nowrap;
-    }
-    .legend {
-      margin-left: 20px;
-      padding: 1rem;
-      background: #fff;
-      border: 1px solid #333;
-      width: 250px;
-      font-size: 14px;
-    }
-    .legend h2 {
-      margin-top: 0;
-    }
-    .legend ul {
-      list-style: none;
       padding: 0;
     }
-    .legend li {
-      margin: 6px 0;
+    header {
+      background: #ffb6d9;
+      padding: 25px;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.4em;
+    }
+    header p {
+      font-size: 1.1em;
+    }
+    nav {
+      background: #ffd9ec;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      padding: 15px;
+    }
+    nav a {
+      text-decoration: none;
+      font-weight: bold;
+      color: #b3005e;
+      background: white;
+      padding: 8px 14px;
+      border-radius: 20px;
+    }
+    section {
+      padding: 25px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    h2 {
+      color: #b3005e;
+      border-bottom: 2px solid #ffb6d9;
+      padding-bottom: 5px;
+    }
+    .card {
+      background: white;
+      padding: 18px;
+      margin: 15px 0;
+      border-radius: 14px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    }
+    .character-name {
+      font-size: 1.2em;
+      font-weight: bold;
+      color: #8a0046;
+    }
+    .quote {
+      font-style: italic;
+      background: #fff0f8;
+      padding: 12px;
+      border-left: 5px solid #ff8fc6;
+      margin: 10px 0;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #ffb6d9;
+      margin-top: 40px;
     }
   </style>
 </head>
 <body>
-  <h1>Lewis & Clark Expedition (1804–1806)</h1>
-  <div class="container">
-    <div class="map-area">
-      <!-- Example labels (adjust positions to match your map) -->
-      <div class="label" style="top: 520px; left: 480px;">St. Louis (Start)</div>
-      <div class="label" style="top: 500px; left: 500px;">Mississippi River</div>
-      <div class="label" style="top: 480px; left: 520px;">Missouri River</div>
-      <div class="label" style="top: 400px; left: 600px;">Fort Mandan</div>
-      <div class="label" style="top: 360px; left: 660px;">Great Falls</div>
-      <div class="label" style="top: 340px; left: 700px;">Three Forks</div>
-      <div class="label" style="top: 320px; left: 740px;">Lemhi Pass</div>
-      <div class="label" style="top: 300px; left: 780px;">Lolo Pass</div>
-      <div class="label" style="top: 280px; left: 820px;">Clearwater River</div>
-      <div class="label" style="top: 260px; left: 860px;">Snake River</div>
-      <div class="label" style="top: 240px; left: 900px;">Columbia River</div>
-      <div class="label" style="top: 220px; left: 940px;">Fort Clatsop (Pacific)</div>
-      <div class="label" style="top: 500px; left: 460px;">Camp Dubois</div>
-      <div class="label" style="top: 420px; left: 580px;">Knife River Villages</div>
-      <div class="label" style="top: 380px; left: 620px;">Gates of the Mountains</div>
-      <div class="label" style="top: 340px; left: 680px;">Jefferson River</div>
-      <div class="label" style="top: 340px; left: 690px;">Madison River</div>
-      <div class="label" style="top: 340px; left: 700px;">Gallatin River</div>
-      <div class="label" style="top: 300px; left: 760px;">Traveler's Rest</div>
-      <div class="label" style="top: 260px; left: 880px;">Celilo Falls</div>
-      <div class="label" style="top: 240px; left: 920px;">Cape Disappointment</div>
-    </div>
-    <div class="legend">
-      <h2>Map Key</h2>
-      <ul>
-        <li><strong>Red:</strong> Expedition Route</li>
-        <li><strong>Blue:</strong> Major Rivers</li>
-        <li><strong>Green:</strong> Camps & Forts</li>
-        <li><strong>Orange:</strong> Landmarks</li>
-      </ul>
-      <p>This map shows the Lewis & Clark route from St. Louis to the Pacific, with major rivers, forts, and landmarks labeled. All required labels are included.</p>
-    </div>
+
+<header>
+  <h1>A Midsummer Night’s Dream</h1>
+  <p>Complete Quiz Study Guide – Characters, Quotes, Significance, & Test Tips</p>
+</header>
+
+<nav>
+  <a href="#characters">Characters</a>
+  <a href="#relationships">Relationships</a>
+  <a href="#themes">Themes</a>
+  <a href="#quotes">Key Quotes</a>
+  <a href="#mechanicals">Mechanicals</a>
+  <a href="#testtips">Test Strategy</a>
+</nav>
+
+<section id="characters">
+  <h2>Major Characters (WHO they are & WHY they matter)</h2>
+
+  <div class="card">
+    <div class="character-name">Theseus</div>
+    <p>Duke of Athens. Represents law, order, and reason. His authority drives the conflict by supporting Egeus’ demand that Hermia marry Demetrius.</p>
   </div>
+
+  <div class="card">
+    <div class="character-name">Hippolyta</div>
+    <p>Queen of the Amazons, engaged to Theseus. She is calmer and more empathetic than Theseus and often questions his rigid thinking.</p>
+  </div>
+
+  <div class="card">
+    <div class="character-name">Hermia</div>
+    <p>Loves Lysander. Strong-willed and defiant. Challenges patriarchal authority by refusing to marry Demetrius.</p>
+  </div>
+
+  <div class="card">
+    <div class="character-name">Lysander</div>
+    <p>Loves Hermia. Romantic and rebellious. Represents true love before magic interferes.</p>
+  </div>
+
+  <div class="card">
+    <div class="character-name">Demetrius</div>
+    <p>Originally loved Helena but now pursues Hermia. Represents shallow, changeable love.</p>
+  </div>
+
+  <div class="card">
+    <div class="character-name">Helena</div>
+    <p>Loves Demetrius. Insecure, emotional, and self-critical. Believes love equals suffering.</p>
+  </div>
+
+  <div class="card">
+    <div class="character-name">Oberon</div>
+    <p>King of the Fairies. Controls magic and manipulation. Uses enchantment to restore balance, but often causes chaos first.</p>
+  </div>
+
+  <div class="card">
+    <div class="character-name">Titania</div>
+    <p>Queen of the Fairies. Strong, proud, and protective. Her conflict with Oberon causes disorder in nature.</p>
+  </div>
+
+  <div class="card">
+    <div class="character-name">Puck (Robin Goodfellow)</div>
+    <p>Mischievous fairy. Loves chaos and mistakes. Represents unpredictability and comedy.</p>
+  </div>
+</section>
+
+<section id="mechanicals">
+  <h2>The Mechanicals (Comedy Purpose)</h2>
+  <div class="card">
+    <p><strong>Bottom</strong> – Weaver, overconfident, comic relief. Represents foolish ambition.</p>
+    <p><strong>Quince</strong> – Director of the play. Serious but ineffective.</p>
+    <p><strong>Flute</strong> – Plays Thisbe, embarrassed due to his beard.</p>
+    <p><strong>Snug</strong> – Plays Lion, worried about remembering lines.</p>
+    <p><strong>Starveling</strong> – Plays Moonshine.</p>
+  </div>
+</section>
+
+<section id="themes">
+  <h2>Major Themes (WHY scenes matter)</h2>
+  <div class="card">
+    <ul>
+      <li><strong>Love vs. Reason</strong> – Love is irrational and chaotic.</li>
+      <li><strong>Dream vs. Reality</strong> – The forest blurs what is real.</li>
+      <li><strong>Order vs. Chaos</strong> – Athens = law, Forest = disorder.</li>
+      <li><strong>Appearance vs. Truth</strong> – Characters misjudge love and loyalty.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="quotes">
+  <h2>Key Quotes (Speaker + Significance)</h2>
+
+  <div class="card">
+    <div class="quote">"Lord, what fools these mortals be!"</div>
+    <p><strong>Speaker:</strong> Puck</p>
+    <p><strong>Significance:</strong> Shows Puck’s amusement at human love and highlights the play’s theme of foolishness.</p>
+  </div>
+
+  <div class="card">
+    <div class="quote">"The course of true love never did run smooth."</div>
+    <p><strong>Speaker:</strong> Lysander</p>
+    <p><strong>Significance:</strong> Establishes love as difficult even before magic intervenes.</p>
+  </div>
+
+  <div class="card">
+    <div class="quote">"I am your spaniel."</div>
+    <p><strong>Speaker:</strong> Helena</p>
+    <p><strong>Significance:</strong> Shows Helena’s lack of self-respect and desperation.</p>
+  </div>
+
+  <div class="card">
+    <div class="quote">"Now thou and I are new in amity."</div>
+    <p><strong>Speaker:</strong> Oberon</p>
+    <p><strong>Significance:</strong> Signals restoration of order and harmony.</p>
+  </div>
+</section>
+
+<section id="testtips">
+  <h2>How to ACE Speaker Identification</h2>
+  <div class="card">
+    <ul>
+      <li>Dramatic & exaggerated = Mechanical</li>
+      <li>Legal language = Theseus or Egeus</li>
+      <li>Magic, nature, control = Oberon</li>
+      <li>Self-hate or devotion = Helena</li>
+      <li>Chaos or jokes = Puck</li>
+    </ul>
+  </div>
+</section>
+
+<footer>
+  <p>You are prepared. You are capable. Shakespeare is NOT winning today.</p>
+</footer>
+
 </body>
 </html>
+
